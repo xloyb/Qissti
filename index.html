@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QISSATI — قصتي | Livres Personnalisés pour Enfants en Tunisie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F3F0E6',
+            forest: '#0A2218',
+            lime: '#D4F02E',
+            brand: '#8B5E34',
+            brandLight: '#C4956A',
+            brandDark: '#5C3D22',
+            warmYellow: '#F9E784',
+            softPink: '#FADADD',
+            skyBlue: '#A8D8EA',
+            mintGreen: '#B5EAD7',
+          },
+          fontFamily: {
+            body: ['Inter', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            arabic: ['Noto Kufi Arabic', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background: #D4F02E; color: #0A2218; }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(-2deg); }
+    }
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .float-1 { animation: float 4s ease-in-out infinite; }
+    .float-2 { animation: floatReverse 5s ease-in-out infinite 0.5s; }
+    .float-3 { animation: float 6s ease-in-out infinite 1s; }
+    .sparkle { animation: sparkle 2s ease-in-out infinite; }
+    .sparkle-delay { animation: sparkle 2s ease-in-out infinite 0.7s; }
+    .sparkle-delay-2 { animation: sparkle 2s ease-in-out infinite 1.4s; }
+    .slide-up { animation: slideUp 0.8s ease-out forwards; }
+    .slide-up-delay-1 { animation: slideUp 0.8s ease-out 0.15s forwards; opacity: 0; }
+    .slide-up-delay-2 { animation: slideUp 0.8s ease-out 0.3s forwards; opacity: 0; }
+    .slide-up-delay-3 { animation: slideUp 0.8s ease-out 0.45s forwards; opacity: 0; }
+    .wiggle-hover:hover { animation: wiggle 0.4s ease-in-out; }
+
+    .book-shadow {
+      box-shadow: 8px 8px 0px 0px rgba(10,34,24,0.15), 
+                  16px 16px 0px 0px rgba(10,34,24,0.05);
+    }
+    .card-hover {
+      transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 6px 6px 0px 0px rgba(10,34,24,0.12);
+    }
+
+    .sticker {
+      filter: drop-shadow(0 2px 3px rgba(0,0,0,0.12));
+    }
+
+    .dotted-bg {
+      background-image: radial-gradient(circle, #0A2218 0.8px, transparent 0.8px);
+      background-size: 24px 24px;
+      opacity: 0.04;
+    }
+  </style>
+</head>
+<body class="bg-cream text-forest font-body">
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-50 bg-cream/95 backdrop-blur-sm border-b-2 border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2 group">
+        <div class="w-10 h-10 bg-forest rounded-lg flex items-center justify-center group-hover:bg-forest/90 transition-colors">
+          <i data-lucide="book-open" class="w-5 h-5 text-lime"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg leading-none tracking-tight">QISSATI</span>
+          <span class="font-arabic text-sm text-forest/60 leading-none">قصتي</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#comment" class="text-xs font-semibold uppercase tracking-tight text-forest/70 hover:text-forest transition-colors">Comment ça marche</a>
+        <a href="#collection" class="text-xs font-semibold uppercase tracking-tight text-forest/70 hover:text-forest transition-colors">Collection</a>
+        <a href="#avis" class="text-xs font-semibold uppercase tracking-tight text-forest/70 hover:text-forest transition-colors">Avis</a>
+        <a href="#tarifs" class="text-xs font-semibold uppercase tracking-tight text-forest/70 hover:text-forest transition-colors">Tarifs</a>
+        <a href="#faq" class="text-xs font-semibold uppercase tracking-tight text-forest/70 hover:text-forest transition-colors">FAQ</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="#commander" class="hidden sm:inline-flex items-center gap-2 bg-forest text-cream px-5 py-2.5 rounded-lg border-2 border-forest font-display font-bold text-sm uppercase tracking-wide hover:bg-forest/90 transition-colors shadow-[2px_2px_0px_0px_rgba(10,34,24,1)]">
+          Commander
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <button id="mobileMenuBtn" class="md:hidden w-10 h-10 rounded-lg border-2 border-forest/20 flex items-center justify-center hover:border-forest transition-colors">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t-2 border-forest/10 bg-cream px-4 py-4 space-y-3">
+      <a href="#comment" class="block text-sm font-semibold uppercase tracking-tight py-2">Comment ça marche</a>
+      <a href="#collection" class="block text-sm font-semibold uppercase tracking-tight py-2">Collection</a>
+      <a href="#avis" class="block text-sm font-semibold uppercase tracking-tight py-2">Avis</a>
+      <a href="#tarifs" class="block text-sm font-semibold uppercase tracking-tight py-2">Tarifs</a>
+      <a href="#faq" class="block text-sm font-semibold uppercase tracking-tight py-2">FAQ</a>
+      <a href="#commander" class="flex items-center justify-center gap-2 bg-forest text-cream px-5 py-3 rounded-lg border-2 border-forest font-display font-bold text-sm uppercase tracking-wide mt-2">
+        Commander <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 dotted-bg pointer-events-none"></div>
+    <div class="absolute top-20 left-[8%] sparkle">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#D4F02E"/></svg>
+    </div>
+    <div class="absolute top-40 right-[12%] sparkle-delay">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#F9E784"/></svg>
+    </div>
+    <div class="absolute bottom-32 left-[15%] sparkle-delay-2">
+      <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#FADADD"/></svg>
+    </div>
+    <div class="absolute bottom-20 right-[20%] sparkle">
+      <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#A8D8EA"/></svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 lg:py-28">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <!-- Text Content -->
+        <div class="flex-1 text-center lg:text-left">
+          <div class="slide-up">
+            <span class="inline-flex items-center gap-2 bg-lime/40 text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-lime/60 mb-6">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+              Premier service en Tunisie
+            </span>
+          </div>
+          <h1 class="font-display font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tighter leading-[0.95] mb-6 slide-up-delay-1">
+            Votre enfant,<br>
+            <span class="relative inline-block">
+              héros de son
+              <svg class="absolute -bottom-1 left-0 w-full" viewBox="0 0 300 12" fill="none"><path d="M2 8C50 2 100 2 150 6C200 10 250 4 298 6" stroke="#D4F02E" stroke-width="4" stroke-linecap="round"/></svg>
+            </span>
+            propre histoire
+          </h1>
+          <p class="text-base md:text-lg text-forest/70 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed slide-up-delay-2">
+            Créez un livre unique où votre enfant est le protagoniste. Un cadeau inoubliable qui éveille l'imagination et renforce la confiance en soi.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start slide-up-delay-3">
+            <a href="#commander" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-forest text-cream px-8 py-3.5 rounded-lg border-2 border-forest font-display font-bold text-sm uppercase tracking-wide hover:bg-forest/90 transition-all shadow-[3px_3px_0px_0px_rgba(10,34,24,1)] hover:shadow-[1px_1px_0px_0px_rgba(10,34,24,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
+              Créer mon livre
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#comment" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-forest px-8 py-3.5 rounded-lg border-2 border-forest/20 font-display font-bold text-sm uppercase tracking-wide hover:border-forest/40 transition-colors">
+              <i data-lucide="play-circle" class="w-4 h-4"></i>
+              Comment ça marche
+            </a>
+          </div>
+
+          <!-- Trust badges -->
+          <div class="flex items-center gap-6 mt-10 justify-center lg:justify-start">
+            <div class="flex items-center gap-2">
+              <div class="flex -space-x-2">
+                <img src="https://picsum.photos/seed/kid1/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-cream object-cover" alt="">
+                <img src="https://picsum.photos/seed/kid2/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-cream object-cover" alt="">
+                <img src="https://picsum.photos/seed/kid3/40/40.jpg" class="w-8 h-8 rounded-full border-2 border-cream object-cover" alt="">
+              </div>
+              <span class="text-xs font-medium text-forest/60">+2 000 familles</span>
+            </div>
+            <div class="flex items-center gap-1">
+              <div class="flex">
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-warmYellow text-warmYellow"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-warmYellow text-warmYellow"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-warmYellow text-warmYellow"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-warmYellow text-warmYellow"></i>
+                <i data-lucide="star" class="w-3.5 h-3.5 fill-warmYellow text-warmYellow"></i>
+              </div>
+              <span class="text-xs font-medium text-forest/60">4.9/5</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Composition -->
+        <div class="flex-1 relative w-full max-w-lg lg:max-w-none">
+          <div class="relative">
+            <!-- Main book -->
+            <div class="float-1 relative z-10">
+              <div class="bg-white rounded-xl border-2 border-forest/10 p-3 book-shadow">
+                <img src="https://picsum.photos/seed/storybook-kid/500/620.jpg" alt="Livre personnalisé QISSATI" class="w-full aspect-[4/5] object-cover rounded-lg">
+                <!-- Sticker on book -->
+                <div class="absolute -top-3 -right-3 bg-lime rounded-full p-2 border-2 border-forest sticker wiggle-hover">
+                  <i data-lucide="heart" class="w-5 h-5 text-forest"></i>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating element 1 - Character card -->
+            <div class="absolute -left-6 top-1/4 float-2 z-20 hidden md:block">
+              <div class="bg-white rounded-lg border-2 border-forest p-3 shadow-[3px_3px_0px_0px_rgba(10,34,24,0.1)]">
+                <div class="flex items-center gap-2">
+                  <div class="w-10 h-10 bg-softPink rounded-full flex items-center justify-center">
+                    <i data-lucide="user" class="w-5 h-5 text-brand"></i>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold">Personnalisé</p>
+                    <p class="text-[10px] text-forest/50">Nom, apparence...</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating element 2 - Language card -->
+            <div class="absolute -right-4 bottom-1/3 float-3 z-20 hidden md:block">
+              <div class="bg-white rounded-lg border-2 border-forest p-3 shadow-[3px_3px_0px_0px_rgba(10,34,24,0.1)]">
+                <div class="flex items-center gap-2">
+                  <div class="w-10 h-10 bg-skyBlue rounded-full flex items-center justify-center">
+                    <span class="font-arabic font-bold text-sm">عربي</span>
+                  </div>
+                  <div>
+                    <p class="text-xs font-bold">Bilingue</p>
+                    <p class="text-[10px] text-forest/50">Français & Arabe</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating element 3 - Quality badge -->
+            <div class="absolute left-4 -bottom-4 float-1 z-20 hidden lg:block">
+              <div class="bg-warmYellow rounded-lg border-2 border-forest p-3 shadow-[3px_3px_0px_0px_rgba(10,34,24,0.1)]">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-5 h-5 text-forest"></i>
+                  <div>
+                    <p class="text-xs font-bold">Qualité premium</p>
+                    <p class="text-[10px] text-forest/60">Impression Tunisie</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto"><path d="M0 30C240 60 480 0 720 30C960 60 1200 0 1440 30V60H0V30Z" fill="#0A2218"/></svg>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="comment" class="bg-forest relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="dotted-bg w-full h-full" style="background-image: radial-gradient(circle, #F3F0E6 0.8px, transparent 0.8px);"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-2 bg-white/10 text-lime px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-white/10 mb-6">
+          <i data-lucide="wand-2" class="w-3.5 h-3.5"></i>
+          Simple comme bonjour
+        </span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[0.95] text-cream">
+          3 étapes pour créer<br>un livre magique
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 md:gap-8">
+        <!-- Step 1 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-lime/20 flex items-center justify-center border border-lime/30 group-hover:bg-lime/30 transition-colors">
+              <span class="font-display font-bold text-lime text-lg">01</span>
+            </div>
+            <div class="flex-1 h-px bg-white/10"></div>
+          </div>
+          <div class="w-16 h-16 rounded-xl bg-softPink/20 flex items-center justify-center mb-5">
+            <i data-lucide="pen-tool" class="w-7 h-7 text-softPink"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-cream mb-3">Personnalisez</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">
+            Entrez le prénom de l'enfant, choisissez son apparence (cheveux, peau, vêtements) et sélectionnez un thème d'aventure.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all group md:-translate-y-4">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-lime/20 flex items-center justify-center border border-lime/30 group-hover:bg-lime/30 transition-colors">
+              <span class="font-display font-bold text-lime text-lg">02</span>
+            </div>
+            <div class="flex-1 h-px bg-white/10"></div>
+          </div>
+          <div class="w-16 h-16 rounded-xl bg-skyBlue/20 flex items-center justify-center mb-5">
+            <i data-lucide="book-open" class="w-7 h-7 text-skyBlue"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-cream mb-3">Nous créons</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">
+            Notre équipe d'illustrateurs et d'auteurs crée votre livre unique avec des illustrations sur mesure et une histoire captivante.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-8 hover:bg-white/10 transition-all group">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-lime/20 flex items-center justify-center border border-lime/30 group-hover:bg-lime/30 transition-colors">
+              <span class="font-display font-bold text-lime text-lg">03</span>
+            </div>
+            <div class="flex-1 h-px bg-white/10"></div>
+          </div>
+          <div class="w-16 h-16 rounded-xl bg-mintGreen/20 flex items-center justify-center mb-5">
+            <i data-lucide="package" class="w-7 h-7 text-mintGreen"></i>
+          </div>
+          <h3 class="font-display font-bold text-xl text-cream mb-3">Recevez-le</h3>
+          <p class="text-cream/60 text-sm leading-relaxed">
+            Livraison à domicile partout en Tunisie sous 5-7 jours. Emballage cadeau offert pour rendre le moment encore plus spécial.
+          </p>
+        </div>
+      </div>
+
+      <div class="text-center mt-12">
+        <a href="#commander" class="inline-flex items-center gap-2 bg-lime text-forest px-8 py-3.5 rounded-lg border-2 border-lime font-display font-bold text-sm uppercase tracking-wide hover:bg-lime/90 transition-all shadow-[3px_3px_0px_0px_rgba(212,240,46,0.3)]">
+          Commencer maintenant
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Wave divider -->
+    <div class="w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto"><path d="M0 30C240 0 480 60 720 30C960 0 1200 60 1440 30V60H0V30Z" fill="#F3F0E6"/></svg>
+    </div>
+  </section>
+
+  <!-- COLLECTION -->
+  <section id="collection" class="bg-cream relative">
+    <div class="absolute inset-0 dotted-bg pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10">
+      <div class="text-center mb-14">
+        <span class="inline-flex items-center gap-2 bg-forest/5 text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-forest/10 mb-6">
+          <i data-lucide="library" class="w-3.5 h-3.5"></i>
+          Notre collection
+        </span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[0.95] mb-4">
+          Des aventures pour<br>chaque enfant
+        </h2>
+        <p class="text-forest/60 max-w-md mx-auto">
+          Chaque histoire est pensée pour inspirer, éduquer et faire rêver. Disponible en français et en arabe.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Book 1 -->
+        <div class="card-hover group cursor-pointer">
+          <div class="bg-white rounded-xl border-2 border-forest/10 overflow-hidden">
+            <div class="relative aspect-[3/4] overflow-hidden">
+              <img src="https://picsum.photos/seed/space-adventure/400/530.jpg" alt="Aventure spatiale" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-skyBlue/90 text-forest px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">Populaire</div>
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-forest/60 to-transparent p-4">
+                <span class="font-arabic text-cream/80 text-sm">مغامرة فضائية</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display font-bold text-base mb-1">L'Aventure Spatiale</h3>
+              <p class="text-xs text-forest/60 mb-3">3-8 ans · 32 pages</p>
+              <div class="flex items-center justify-between">
+                <span class="font-display font-bold text-lg">45 TND</span>
+                <span class="inline-flex items-center gap-1 text-xs text-forest/50">
+                  <i data-lucide="languages" class="w-3 h-3"></i>
+                  FR / AR
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 2 -->
+        <div class="card-hover group cursor-pointer">
+          <div class="bg-white rounded-xl border-2 border-forest/10 overflow-hidden">
+            <div class="relative aspect-[3/4] overflow-hidden">
+              <img src="https://picsum.photos/seed/ocean-world/400/530.jpg" alt="Monde sous-marin" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-mintGreen/90 text-forest px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">Nouveau</div>
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-forest/60 to-transparent p-4">
+                <span class="font-arabic text-cream/80 text-sm">العالم البحري</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display font-bold text-base mb-1">Le Monde Sous-Marin</h3>
+              <p class="text-xs text-forest/60 mb-3">3-8 ans · 32 pages</p>
+              <div class="flex items-center justify-between">
+                <span class="font-display font-bold text-lg">45 TND</span>
+                <span class="inline-flex items-center gap-1 text-xs text-forest/50">
+                  <i data-lucide="languages" class="w-3 h-3"></i>
+                  FR / AR
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 3 -->
+        <div class="card-hover group cursor-pointer">
+          <div class="bg-white rounded-xl border-2 border-forest/10 overflow-hidden">
+            <div class="relative aspect-[3/4] overflow-hidden">
+              <img src="https://picsum.photos/seed/dinosaur-land/400/530.jpg" alt="Pays des dinosaures" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-forest/60 to-transparent p-4">
+                <span class="font-arabic text-cream/80 text-sm">عالم الديناصورات</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display font-bold text-base mb-1">Au Pays des Dinosaures</h3>
+              <p class="text-xs text-forest/60 mb-3">3-8 ans · 32 pages</p>
+              <div class="flex items-center justify-between">
+                <span class="font-display font-bold text-lg">45 TND</span>
+                <span class="inline-flex items-center gap-1 text-xs text-forest/50">
+                  <i data-lucide="languages" class="w-3 h-3"></i>
+                  FR / AR
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Book 4 -->
+        <div class="card-hover group cursor-pointer">
+          <div class="bg-white rounded-xl border-2 border-forest/10 overflow-hidden">
+            <div class="relative aspect-[3/4] overflow-hidden">
+              <img src="https://picsum.photos/seed/fairy-tale-magic/400/530.jpg" alt="Forêt enchantée" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute top-3 left-3 bg-warmYellow/90 text-forest px-2.5 py-1 rounded-md text-[10px] font-bold uppercase">Coup de cœur</div>
+              <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-forest/60 to-transparent p-4">
+                <span class="font-arabic text-cream/80 text-sm">الغابة المسحورة</span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-display font-bold text-base mb-1">La Forêt Enchantée</h3>
+              <p class="text-xs text-forest/60 mb-3">3-8 ans · 32 pages</p>
+              <div class="flex items-center justify-between">
+                <span class="font-display font-bold text-lg">45 TND</span>
+                <span class="inline-flex items-center gap-1 text-xs text-forest/50">
+                  <i data-lucide="languages" class="w-3 h-3"></i>
+                  FR / AR
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="#" class="inline-flex items-center gap-2 text-forest font-display font-bold text-sm uppercase tracking-wide hover:text-forest/70 transition-colors group">
+          Voir toute la collection
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="bg-white relative border-y-2 border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <!-- Image side -->
+        <div class="relative">
+          <div class="rounded-xl overflow-hidden border-2 border-forest/10 book-shadow">
+            <img src="https://picsum.photos/seed/child-reading-book/600/500.jpg" alt="Enfant lisant un livre QISSATI" class="w-full aspect-[6/5] object-cover">
+          </div>
+          <!-- Decorative stickers -->
+          <div class="absolute -top-4 -left-4 bg-lime rounded-full p-3 border-2 border-forest sticker float-2">
+            <i data-lucide="book-heart" class="w-6 h-6 text-forest"></i>
+          </div>
+          <div class="absolute -bottom-3 -right-3 bg-warmYellow rounded-lg px-4 py-2 border-2 border-forest sticker float-1">
+            <span class="font-display font-bold text-sm">100% tunisien 🇹🇳</span>
+          </div>
+        </div>
+
+        <!-- Text side -->
+        <div>
+          <span class="inline-flex items-center gap-2 bg-cream text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-forest/10 mb-6">
+            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+            Pourquoi QISSATI
+          </span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[0.95] mb-8">
+            Un livre qui fait<br>briller les yeux
+          </h2>
+
+          <div class="space-y-5">
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-softPink/40 flex items-center justify-center border border-softPink/60">
+                <i data-lucide="fingerprint" class="w-5 h-5 text-brand"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-sm mb-1">Vraiment personnalisé</h4>
+                <p class="text-sm text-forest/60 leading-relaxed">Le prénom, l'apparence physique, les cheveux, la couleur de peau — chaque détail compte pour que l'enfant se reconnaisse.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-skyBlue/40 flex items-center justify-center border border-skyBlue/60">
+                <i data-lucide="languages" class="w-5 h-5 text-blue-600"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-sm mb-1">Bilingue français-arabe</h4>
+                <p class="text-sm text-forest/60 leading-relaxed">Chaque histoire est disponible dans les deux langues. Parfait pour l'apprentissage et la diversité linguistique.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-mintGreen/40 flex items-center justify-center border border-mintGreen/60">
+                <i data-lucide="trees" class="w-5 h-5 text-green-700"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-sm mb-1">Valeurs éducatives</h4>
+                <p class="text-sm text-forest/60 leading-relaxed">Courage, amitié, respect de la nature, confiance en soi — chaque histoire transmet des valeurs positives.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-warmYellow/40 flex items-center justify-center border border-warmYellow/60">
+                <i data-lucide="printer" class="w-5 h-5 text-amber-700"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-sm mb-1">Qualité premium</h4>
+                <p class="text-sm text-forest/60 leading-relaxed">Impression sur papier épais, couverture rigide, couleurs vives. Un livre fait pour durer et être relu des centaines de fois.</p>
+              </div>
+            </div>
+
+            <div class="flex gap-4">
+              <div class="flex-shrink-0 w-10 h-10 rounded-lg bg-lime/40 flex items-center justify-center border border-lime/60">
+                <i data-lucide="truck" class="w-5 h-5 text-forest"></i>
+              </div>
+              <div>
+                <h4 class="font-display font-bold text-sm mb-1">Livraison partout en Tunisie</h4>
+                <p class="text-sm text-forest/60 leading-relaxed">Tunis, Sfax, Sousse, Kairouan... nous livrons dans toute la Tunisie sous 5-7 jours avec suivi de commande.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="avis" class="bg-cream relative">
+    <div class="absolute inset-0 dotted-bg pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10">
+      <div class="text-center mb-14">
+        <span class="inline-flex items-center gap-2 bg-forest/5 text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-forest/10 mb-6">
+          <i data-lucide="message-circle-heart" class="w-3.5 h-3.5"></i>
+          Témoignages
+        </span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[0.95] mb-4">
+          Ce que disent<br>les parents
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Testimonial 1 -->
+        <div class="card-hover bg-white rounded-xl border-2 border-forest/10 p-6">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+          </div>
+          <p class="text-sm text-forest/70 leading-relaxed mb-6">
+            "Ma fille Yasmine ne lâche plus son livre ! Elle est tellement fière de se voir en héroïne. Le meilleur cadeau d'anniversaire qu'elle ait jamais reçu. La qualité d'impression est excellente."
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-forest/10">
+            <img src="https://picsum.photos/seed/parent1/80/80.jpg" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-forest/10">
+            <div>
+              <p class="font-display font-bold text-sm">Amira B.</p>
+              <p class="text-xs text-forest/50">Tunis · Livre « Forêt Enchantée »</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2 -->
+        <div class="card-hover bg-white rounded-xl border-2 border-forest/10 p-6 md:-translate-y-4">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+          </div>
+          <p class="text-sm text-forest/70 leading-relaxed mb-6">
+            "J'ai commandé pour mon neveu Ahmed, et toute la famille était émerveillée. Le fait que le livre soit en arabe ET en français est génial. Les illustrations sont magnifiques. Bravo à toute l'équipe !"
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-forest/10">
+            <img src="https://picsum.photos/seed/parent2/80/80.jpg" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-forest/10">
+            <div>
+              <p class="font-display font-bold text-sm">Mehdi K.</p>
+              <p class="text-xs text-forest/50">Sfax · Livre « Aventure Spatiale »</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3 -->
+        <div class="card-hover bg-white rounded-xl border-2 border-forest/10 p-6">
+          <div class="flex gap-1 mb-4">
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-warmYellow text-warmYellow"></i>
+          </div>
+          <p class="text-sm text-forest/70 leading-relaxed mb-6">
+            "En tant qu'enseignante, je recommande QISSATI à tous les parents. C'est un outil pédagogique formidable pour encourager la lecture. Les enfants adorent se retrouver dans l'histoire !"
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-forest/10">
+            <img src="https://picsum.photos/seed/parent3/80/80.jpg" alt="" class="w-10 h-10 rounded-full object-cover border-2 border-forest/10">
+            <div>
+              <p class="font-display font-bold text-sm">Leila M.</p>
+              <p class="text-xs text-forest/50">Sousse · 3 livres commandés</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="tarifs" class="bg-forest relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="dotted-bg w-full h-full" style="background-image: radial-gradient(circle, #F3F0E6 0.8px, transparent 0.8px);"></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10">
+      <div class="text-center mb-14">
+        <span class="inline-flex items-center gap-2 bg-white/10 text-lime px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-white/10 mb-6">
+          <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+          Tarifs clairs
+        </span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[0.95] text-cream mb-4">
+          Des prix doux<br>pour de beaux souvenirs
+        </h2>
+        <p class="text-cream/50 max-w-md mx-auto text-sm">
+          Livraison incluse partout en Tunisie. Emballage cadeau offert.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <!-- Plan 1 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all flex flex-col">
+          <div class="mb-6">
+            <h3 class="font-display font-bold text-lg text-cream mb-1">Classique</h3>
+            <p class="text-cream/40 text-xs">Un livre personnalisé</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-display font-bold text-4xl text-cream">45</span>
+            <span class="text-cream/50 text-sm ml-1">TND</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              32 pages illustrées
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Personnalisation complète
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Version bilingue FR/AR
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Livraison offerte
+            </li>
+          </ul>
+          <a href="#commander" class="block text-center bg-white/10 text-cream px-6 py-3 rounded-lg border border-white/20 font-display font-bold text-sm uppercase tracking-wide hover:bg-white/20 transition-colors">
+            Choisir
+          </a>
+        </div>
+
+        <!-- Plan 2 - Popular -->
+        <div class="bg-lime/10 backdrop-blur-sm rounded-xl border-2 border-lime/40 p-6 hover:bg-lime/15 transition-all flex flex-col relative md:-translate-y-4">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-lime text-forest px-4 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide border border-forest/20">
+            Le plus choisi
+          </div>
+          <div class="mb-6">
+            <h3 class="font-display font-bold text-lg text-cream mb-1">Pack Duo</h3>
+            <p class="text-cream/40 text-xs">2 livres personnalisés</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-display font-bold text-4xl text-cream">79</span>
+            <span class="text-cream/50 text-sm ml-1">TND</span>
+            <span class="text-lime text-xs ml-2 font-bold">-11 TND</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              2 × 32 pages illustrées
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Personnalisation complète
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Version bilingue FR/AR
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Livraison offerte
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Emballage cadeau offert
+            </li>
+          </ul>
+          <a href="#commander" class="block text-center bg-lime text-forest px-6 py-3 rounded-lg border-2 border-lime font-display font-bold text-sm uppercase tracking-wide hover:bg-lime/90 transition-colors shadow-[3px_3px_0px_0px_rgba(212,240,46,0.2)]">
+            Choisir
+          </a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6 hover:bg-white/10 transition-all flex flex-col">
+          <div class="mb-6">
+            <h3 class="font-display font-bold text-lg text-cream mb-1">Famille</h3>
+            <p class="text-cream/40 text-xs">3 livres personnalisés</p>
+          </div>
+          <div class="mb-6">
+            <span class="font-display font-bold text-4xl text-cream">109</span>
+            <span class="text-cream/50 text-sm ml-1">TND</span>
+            <span class="text-lime text-xs ml-2 font-bold">-26 TND</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-1">
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              3 × 32 pages illustrées
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Personnalisation complète
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Version bilingue FR/AR
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Livraison offerte
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Emballage cadeau offert
+            </li>
+            <li class="flex items-center gap-2 text-sm text-cream/70">
+              <i data-lucide="check" class="w-4 h-4 text-lime flex-shrink-0"></i>
+              Dédicace imprimée
+            </li>
+          </ul>
+          <a href="#commander" class="block text-center bg-white/10 text-cream px-6 py-3 rounded-lg border border-white/20 font-display font-bold text-sm uppercase tracking-wide hover:bg-white/20 transition-colors">
+            Choisir
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full overflow-hidden leading-none">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto"><path d="M0 30C240 0 480 60 720 30C960 0 1200 60 1440 30V60H0V30Z" fill="#F3F0E6"/></svg>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+  <section id="commander" class="bg-cream relative">
+    <div class="absolute inset-0 dotted-bg pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-16 md:py-24 relative z-10">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-10">
+          <span class="inline-flex items-center gap-2 bg-forest/5 text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-forest/10 mb-6">
+            <i data-lucide="pencil-line" class="w-3.5 h-3.5"></i>
+            Commander
+          </span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[0.95] mb-4">
+            Créez le livre de<br>votre enfant
+          </h2>
+          <p class="text-forest/60 text-sm">Remplissez le formulaire et nous nous occupons du reste.</p>
+        </div>
+
+        <form id="orderForm" class="bg-white rounded-xl border-2 border-forest/10 p-6 md:p-8 shadow-[4px_4px_0px_0px_rgba(10,34,24,0.08)]">
+          <!-- Child Info -->
+          <div class="mb-8">
+            <h3 class="font-display font-bold text-sm uppercase tracking-wide mb-4 flex items-center gap-2">
+              <i data-lucide="baby" class="w-4 h-4 text-brand"></i>
+              Informations de l'enfant
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Prénom de l'enfant *</label>
+                <input type="text" required placeholder="Ex: Yasmine" class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium placeholder:text-forest/30 focus:outline-none focus:border-forest focus:bg-white transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Âge *</label>
+                <select required class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium text-forest focus:outline-none focus:border-forest focus:bg-white transition-colors appearance-none">
+                  <option value="" disabled selected>Choisir l'âge</option>
+                  <option>2 ans</option>
+                  <option>3 ans</option>
+                  <option>4 ans</option>
+                  <option>5 ans</option>
+                  <option>6 ans</option>
+                  <option>7 ans</option>
+                  <option>8 ans</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Genre *</label>
+                <div class="flex gap-3">
+                  <label class="flex-1 cursor-pointer">
+                    <input type="radio" name="gender" value="girl" class="sr-only peer" required>
+                    <div class="text-center px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium peer-checked:border-forest peer-checked:bg-forest peer-checked:text-cream transition-all hover:border-forest/40">
+                      <i data-lucide="circle-user-round" class="w-5 h-5 mx-auto mb-1"></i>
+                      Fille
+                    </div>
+                  </label>
+                  <label class="flex-1 cursor-pointer">
+                    <input type="radio" name="gender" value="boy" class="sr-only peer" required>
+                    <div class="text-center px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium peer-checked:border-forest peer-checked:bg-forest peer-checked:text-cream transition-all hover:border-forest/40">
+                      <i data-lucide="circle-user-round" class="w-5 h-5 mx-auto mb-1"></i>
+                      Garçon
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Couleur de peau</label>
+                <div class="flex gap-2">
+                  <label class="cursor-pointer">
+                    <input type="radio" name="skin" value="light" class="sr-only peer" checked>
+                    <div class="w-10 h-10 rounded-full border-2 border-forest/15 bg-[#FDDCB5] peer-checked:border-forest peer-checked:ring-2 peer-checked:ring-forest/30 transition-all"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="skin" value="medium" class="sr-only peer">
+                    <div class="w-10 h-10 rounded-full border-2 border-forest/15 bg-[#D4A574] peer-checked:border-forest peer-checked:ring-2 peer-checked:ring-forest/30 transition-all"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="skin" value="brown" class="sr-only peer">
+                    <div class="w-10 h-10 rounded-full border-2 border-forest/15 bg-[#A0724A] peer-checked:border-forest peer-checked:ring-2 peer-checked:ring-forest/30 transition-all"></div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="skin" value="dark" class="sr-only peer">
+                    <div class="w-10 h-10 rounded-full border-2 border-forest/15 bg-[#6B4423] peer-checked:border-forest peer-checked:ring-2 peer-checked:ring-forest/30 transition-all"></div>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Book Choice -->
+          <div class="mb-8">
+            <h3 class="font-display font-bold text-sm uppercase tracking-wide mb-4 flex items-center gap-2">
+              <i data-lucide="book-marked" class="w-4 h-4 text-brand"></i>
+              Choix du livre
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Histoire *</label>
+                <select required class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium text-forest focus:outline-none focus:border-forest focus:bg-white transition-colors appearance-none">
+                  <option value="" disabled selected>Choisir une aventure</option>
+                  <option>🚀 L'Aventure Spatiale</option>
+                  <option>🌊 Le Monde Sous-Marin</option>
+                  <option>🦕 Au Pays des Dinosaures</option>
+                  <option>🌿 La Forêt Enchantée</option>
+                  <option>🎪 Le Cirque Magique</option>
+                  <option>🏰 Le Château des Rêves</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Langue *</label>
+                <select required class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium text-forest focus:outline-none focus:border-forest focus:bg-white transition-colors appearance-none">
+                  <option value="" disabled selected>Choisir la langue</option>
+                  <option>🇫🇷 Français uniquement</option>
+                  <option>🇹🇳 Arabe uniquement</option>
+                  <option>🇫🇷🇹🇳 Bilingue Français/Arabe (+5 TND)</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dedication -->
+          <div class="mb-8">
+            <h3 class="font-display font-bold text-sm uppercase tracking-wide mb-4 flex items-center gap-2">
+              <i data-lucide="heart" class="w-4 h-4 text-brand"></i>
+              Dédicace (optionnel)
+            </h3>
+            <textarea rows="2" maxlength="120" placeholder="Ex: Pour ma petite Yasmine, avec tout mon amour. Maman ❤️" class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium placeholder:text-forest/30 focus:outline-none focus:border-forest focus:bg-white transition-colors resize-none"></textarea>
+            <p class="text-[10px] text-forest/40 mt-1 text-right">Max. 120 caractères</p>
+          </div>
+
+          <!-- Parent Info -->
+          <div class="mb-8">
+            <h3 class="font-display font-bold text-sm uppercase tracking-wide mb-4 flex items-center gap-2">
+              <i data-lucide="user" class="w-4 h-4 text-brand"></i>
+              Vos coordonnées
+            </h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Votre nom *</label>
+                <input type="text" required placeholder="Nom complet" class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium placeholder:text-forest/30 focus:outline-none focus:border-forest focus:bg-white transition-colors">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Téléphone *</label>
+                <input type="tel" required placeholder="+216 XX XXX XXX" class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium placeholder:text-forest/30 focus:outline-none focus:border-forest focus:bg-white transition-colors">
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Gouvernorat *</label>
+                <select required class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium text-forest focus:outline-none focus:border-forest focus:bg-white transition-colors appearance-none">
+                  <option value="" disabled selected>Choisir le gouvernorat</option>
+                  <option>Tunis</option>
+                  <option>Ariana</option>
+                  <option>Ben Arous</option>
+                  <option>Manouba</option>
+                  <option>Nabeul</option>
+                  <option>Zaghouan</option>
+                  <option>Bizerte</option>
+                  <option>Béja</option>
+                  <option>Jendouba</option>
+                  <option>Le Kef</option>
+                  <option>Siliana</option>
+                  <option>Sousse</option>
+                  <option>Monastir</option>
+                  <option>Mahdia</option>
+                  <option>Sfax</option>
+                  <option>Kairouan</option>
+                  <option>Kasserine</option>
+                  <option>Sidi Bouzid</option>
+                  <option>Gabès</option>
+                  <option>Médenine</option>
+                  <option>Tataouine</option>
+                  <option>Gafsa</option>
+                  <option>Tozeur</option>
+                  <option>Kébili</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label class="block text-xs font-semibold text-forest/70 mb-1.5">Adresse de livraison *</label>
+                <input type="text" required placeholder="Rue, numéro, cité..." class="w-full px-4 py-2.5 rounded-lg border-2 border-forest/15 bg-cream/50 text-sm font-medium placeholder:text-forest/30 focus:outline-none focus:border-forest focus:bg-white transition-colors">
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="w-full flex items-center justify-center gap-2 bg-forest text-cream px-8 py-4 rounded-lg border-2 border-forest font-display font-bold text-sm uppercase tracking-wide hover:bg-forest/90 transition-all shadow-[3px_3px_0px_0px_rgba(10,34,24,1)] hover:shadow-[1px_1px_0px_0px_rgba(10,34,24,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
+            <i data-lucide="send" class="w-4 h-4"></i>
+            Confirmer ma commande — 45 TND
+          </button>
+          <p class="text-center text-[10px] text-forest/40 mt-3">Paiement à la livraison. Aucun paiement en ligne requis.</p>
+
+          <!-- Success message (hidden by default) -->
+          <div id="successMsg" class="hidden mt-6 bg-mintGreen/30 border-2 border-mintGreen rounded-lg p-4 text-center">
+            <i data-lucide="party-popper" class="w-8 h-8 text-forest mx-auto mb-2"></i>
+            <p class="font-display font-bold text-sm">Commande envoyée avec succès ! 🎉</p>
+            <p class="text-xs text-forest/60 mt-1">Nous vous contacterons sous 24h pour confirmer votre commande.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-white border-t-2 border-forest/10">
+    <div class="max-w-3xl mx-auto px-4 md:px-6 py-16 md:py-24">
+      <div class="text-center mb-14">
+        <span class="inline-flex items-center gap-2 bg-cream text-forest px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wide border border-forest/10 mb-6">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5"></i>
+          FAQ
+        </span>
+        <h2 class="font-display font-bold text-3xl md:text-4xl tracking-tighter leading-[0.95]">
+          Questions fréquentes
+        </h2>
+      </div>
+
+      <div class="space-y-3" id="faqContainer">
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">Combien de temps prend la livraison ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">La livraison prend entre 5 et 7 jours ouvrables partout en Tunisie. Vous recevrez un numéro de suivi pour suivre votre colis en temps réel.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">Comment se fait le paiement ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">Nous proposons le paiement à la livraison (COD) — aucun paiement en ligne n'est nécessaire. Vous payez en espèces au livreur lors de la réception.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">Puis-je choisir la couleur des cheveux et des yeux ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">Oui ! Après votre commande, notre équipe vous contactera pour finaliser les détails : couleur des cheveux, des yeux, style de vêtements, etc. Chaque livre est vraiment sur mesure.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">À partir de quel âge conviennent les livres ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">Nos livres sont adaptés aux enfants de 2 à 8 ans. Les histoires sont conçues pour être simples et captivantes. Pour les plus petits (2-3 ans), les parents peuvent lire l'histoire à voix haute.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">Quelle est la différence entre la version française et bilingue ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">La version française contient uniquement le texte en français. La version bilingue propose le texte en français avec la traduction arabe en regard — idéal pour les familles qui souhaitent développer les deux langues.</p>
+          </div>
+        </div>
+
+        <div class="faq-item border-2 border-forest/10 rounded-lg overflow-hidden">
+          <button class="faq-btn w-full flex items-center justify-between p-5 text-left hover:bg-cream/50 transition-colors" onclick="toggleFaq(this)">
+            <span class="font-display font-bold text-sm pr-4">Puis-je commander pour un événement spécial ?</span>
+            <i data-lucide="plus" class="w-5 h-5 flex-shrink-0 text-forest/40 faq-icon transition-transform duration-200"></i>
+          </button>
+          <div class="faq-content hidden px-5 pb-5">
+            <p class="text-sm text-forest/60 leading-relaxed">Absolument ! Nos livres sont parfaits pour les anniversaires, la rentrée scolaire, Eid, ou simplement pour faire plaisir. L'emballage cadeau est inclus dans les packs Duo et Famille, et disponible à 5 TND pour le livre Classique.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="bg-forest relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="dotted-bg w-full h-full" style="background-image: radial-gradient(circle, #F3F0E6 0.8px, transparent 0.8px);"></div>
+    </div>
+    <!-- Decorative sparkles -->
+    <div class="absolute top-10 left-[10%] sparkle">
+      <svg width="16" height="16" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#D4F02E" opacity="0.5"/></svg>
+    </div>
+    <div class="absolute bottom-10 right-[15%] sparkle-delay">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#F9E784" opacity="0.4"/></svg>
+    </div>
+    <div class="absolute top-1/2 right-[8%] sparkle-delay-2">
+      <svg width="12" height="12" viewBox="0 0 20 20" fill="none"><path d="M10 0L12.2 7.8L20 10L12.2 12.2L10 20L7.8 12.2L0 10L7.8 7.8L10 0Z" fill="#FADADD" opacity="0.5"/></svg>
+    </div>
+
+    <div class="max-w-3xl mx-auto px-4 md:px-6 py-20 md:py-28 text-center relative z-10">
+      <div class="float-1 inline-block mb-6">
+        <div class="w-16 h-16 rounded-2xl bg-lime/20 flex items-center justify-center border border-lime/30 mx-auto">
+          <i data-lucide="book-open" class="w-8 h-8 text-lime"></i>
+        </div>
+      </div>
+      <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tighter leading-[0.95] text-cream mb-6">
+        Offrez-lui le cadeau<br>d'être le héros
+      </h2>
+      <p class="text-cream/60 max-w-md mx-auto mb-8 text-sm leading-relaxed">
+        Chaque enfant mérite une histoire qui lui ressemble. Créez un souvenir impérissable en quelques clics.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#commander" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-lime text-forest px-10 py-4 rounded-lg border-2 border-lime font-display font-bold text-sm uppercase tracking-wide hover:bg-lime/90 transition-all shadow-[3px_3px_0px_0px_rgba(212,240,46,0.3)]">
+          Créer mon livre maintenant
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="https://wa.me/21600000000" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white/10 text-cream px-8 py-4 rounded-lg border border-white/20 font-display font-bold text-sm uppercase tracking-wide hover:bg-white/20 transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contactez-nous sur WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-cream border-t-2 border-forest/10">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-16">
+      <div class="grid md:grid-cols-4 gap-10">
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <a href="#" class="flex items-center gap-2 mb-4">
+            <div class="w-10 h-10 bg-forest rounded-lg flex items-center justify-center">
+              <i data-lucide="book-open" class="w-5 h-5 text-lime"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-display font-bold text-lg leading-none tracking-tight">QISSATI</span>
+              <span class="font-arabic text-sm text-forest/60 leading-none">قصتي</span>
+            </div>
+          </a>
+          <p class="text-sm text-forest/60 leading-relaxed mb-4">
+            Le premier service de livres personnalisés pour enfants en Tunisie. Chaque enfant mérite d'être le héros de son histoire.
+          </p>
+          <div class="flex gap-3">
+            <a href="#" class="w-9 h-9 rounded-lg bg-forest/5 border border-forest/10 flex items-center justify-center hover:bg-forest hover:text-cream transition-all">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-forest/5 border border-forest/10 flex items-center justify-center hover:bg-forest hover:text-cream transition-all">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="#" class="w-9 h-9 rounded-lg bg-forest/5 border border-forest/10 flex items-center justify-center hover:bg-forest hover:text-cream transition-all">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.48V8.73a8.19 8.19 0 004.72 1.5V6.79a4.85 4.85 0 01-1-.1z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Links -->
+        <div>
+          <h4 class="font-display font-bold text-xs uppercase tracking-wide mb-4">Navigation</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#comment" class="text-sm text-forest/60 hover:text-forest transition-colors">Comment ça marche</a></li>
+            <li><a href="#collection" class="text-sm text-forest/60 hover:text-forest transition-colors">Collection</a></li>
+            <li><a href="#tarifs" class="text-sm text-forest/60 hover:text-forest transition-colors">Tarifs</a></li>
+            <li><a href="#commander" class="text-sm text-forest/60 hover:text-forest transition-colors">Commander</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-xs uppercase tracking-wide mb-4">Aide</h4>
+          <ul class="space-y-2.5">
+            <li><a href="#faq" class="text-sm text-forest/60 hover:text-forest transition-colors">Questions fréquentes</a></li>
+            <li><a href="#" class="text-sm text-forest/60 hover:text-forest transition-colors">Suivi de commande</a></li>
+            <li><a href="#" class="text-sm text-forest/60 hover:text-forest transition-colors">Politique de retour</a></li>
+            <li><a href="#" class="text-sm text-forest/60 hover:text-forest transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-xs uppercase tracking-wide mb-4">Contact</h4>
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-2 text-sm text-forest/60">
+              <i data-lucide="phone" class="w-4 h-4 flex-shrink-0"></i>
+              +216 XX XXX XXX
+            </li>
+            <li class="flex items-center gap-2 text-sm text-forest/60">
+              <i data-lucide="mail" class="w-4 h-4 flex-shrink-0"></i>
+              contact@qissati.tn
+            </li>
+            <li class="flex items-center gap-2 text-sm text-forest/60">
+              <i data-lucide="map-pin" class="w-4 h-4 flex-shrink-0"></i>
+              Tunis, Tunisie
+            </li>
+          </ul>
+          <!-- Payment methods -->
+          <div class="mt-6">
+            <p class="text-xs text-forest/40 mb-2 font-semibold">Paiement à la livraison</p>
+            <div class="flex items-center gap-2">
+              <div class="bg-forest/5 rounded-md px-2 py-1 border border-forest/10">
+                <span class="text-[10px] font-bold text-forest/50">💵 Espèces</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-12 pt-6 border-t border-forest/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-xs text-forest/40">
+          © 2025 QISSATI — قصتي. Tous droits réservés. Fait avec ❤️ en Tunisie.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-xs text-forest/40 hover:text-forest/70 transition-colors">Mentions légales</a>
+          <a href="#" class="text-xs text-forest/40 hover:text-forest/70 transition-colors">Politique de confidentialité</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    let menuOpen = false;
+
+    mobileMenuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('hidden', !menuOpen);
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // FAQ toggle
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const content = item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
+      const isOpen = !content.classList.contains('hidden');
+
+      // Close all
+      document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+      document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+
+      // Open clicked if it was closed
+      if (!isOpen) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(45deg)';
+      }
+    }
+
+    // Form submission
+    const orderForm = document.getElementById('orderForm');
+    const successMsg = document.getElementById('successMsg');
+
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Simulate submission
+      const submitBtn = orderForm.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <svg class="animate-spin w-4 h-4" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" class="opacity-25"></circle>
+          <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" fill="currentColor" class="opacity-75"></path>
+        </svg>
+        Envoi en cours...
+      `;
+
+      setTimeout(() => {
+        successMsg.classList.remove('hidden');
+        submitBtn.innerHTML = `
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Commande envoyée !
+        `;
+        submitBtn.classList.remove('bg-forest', 'border-forest');
+        submitBtn.classList.add('bg-green-600', 'border-green-600');
+        
+        // Scroll to success message
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Re-init icons for the success message
+        lucide.createIcons();
+      }, 1500);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const navHeight = 64;
+          const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all card-hover elements and sections
+    document.querySelectorAll('.card-hover, .faq-item').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
